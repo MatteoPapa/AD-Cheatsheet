@@ -1,0 +1,54 @@
+commands:
+
+  # ---- Attack ----
+  - section: "Attack"
+    title: "Eseguire exploit contro NOP Team"
+    desc: "Esegue lo script di exploit contro il NOP Team"
+    cmd: "python3 exploit.py {{ NOP_TEAM_IP }}"
+
+  - section: "Attack"
+    title: "Linkare exploit con TOTTI"
+    desc: "Esegue periodicamente lo script di exploit contro tutti i team, e manda i risultati a TOTTI"
+    cmd: "python3 start_sploit.py -u http://{{ INFRAGUY_IP }}:5000 exploit.py"
+
+  # ---- SSH  ----
+  - section: "SSH"
+    title: "SSH nella Macchina del Team"
+    desc: "Accede alla macchina del team tramite SSH"
+    cmd: "ssh root@{{ YOUR_TEAM_IP }}"
+
+  - section: "SSH"
+    title: "Zippare tutti i file nella directory corrente"
+    desc: "Crea un archivio .zip di tutti i file e cartelle nella cartella attuale"
+    cmd: "zip -r zipName.zip ."
+
+  - section: "SSH"
+    title: "Scarica File dalla Macchina del Team"
+    desc: "Copia un file dalla macchina remota alla macchina locale"
+    cmd: "scp root@{{ YOUR_TEAM_IP }}:/root/zipName.zip ."
+
+  # ---- Docker ----
+  - section: "Docker"
+    title: "Elenco Container Attivi"
+    desc: "Mostra tutti i container Docker attualmente in esecuzione"
+    cmd: "docker ps"
+
+  - section: "Docker"
+    title: "Buildare un servizio Docker (senza cache)"
+    desc: "Prebuilda i container da zero ignorando la cache"
+    cmd: "docker compose build --no-cache"
+
+  - section: "Docker"
+    title: "Riavvia i Servizi Docker"
+    desc: "Ferma i container e li riavvia usando immagini già buildate (detached)"
+    cmd: "docker compose down && docker compose up -d"
+
+  - section: "Docker"
+    title: "Accesso al Container Docker"
+    desc: "Apre una shell interattiva nel container Docker specificato"
+    cmd: "docker exec -it DOCKER_ID bash"
+
+  - section: "Docker"
+    title: "Visualizza Log di Docker"
+    desc: "Mostra i log di un servizio Docker"
+    cmd: "docker compose logs"

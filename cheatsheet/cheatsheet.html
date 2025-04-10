@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CTF Cheatsheet</title>
+
+  <!-- My beautiful Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>CTF Cheatsheet</h1>
+    <p><strong>Clicca un commando per copiarlo</strong></p>
+
+    
+      <h2>Attack</h2>
+      
+        <div class="section">
+          <h4>Eseguire exploit contro NOP Team</h4>
+          <div class="desc">Esegue lo script di exploit contro il NOP Team</div>
+          <pre class="click-to-copy" data-command="python3 exploit.py 10.60.0.1"><code>python3 exploit.py 10.60.0.1</code></pre>
+        </div>
+      
+        <div class="section">
+          <h4>Linkare exploit con TOTTI</h4>
+          <div class="desc">Esegue lo script di exploit ad ogni round contro tutti i team e manda i risultati a TOTTI</div>
+          <pre class="click-to-copy" data-command="python3 start_sploit.py -u http://10.80.1.2:5000 exploit.py"><code>python3 start_sploit.py -u http://10.80.1.2:5000 exploit.py</code></pre>
+        </div>
+      
+    
+      <h2>SSH</h2>
+      
+        <div class="section">
+          <h4>SSH nella Macchina del Team</h4>
+          <div class="desc">Accede alla macchina del team tramite SSH</div>
+          <pre class="click-to-copy" data-command="ssh root@10.60.1.1"><code>ssh root@10.60.1.1</code></pre>
+        </div>
+      
+        <div class="section">
+          <h4>Zippare tutti i file nella directory corrente</h4>
+          <div class="desc">Crea un archivio .zip di tutti i file e cartelle nella cartella attuale</div>
+          <pre class="click-to-copy" data-command="zip -r zipName.zip ."><code>zip -r zipName.zip .</code></pre>
+        </div>
+      
+        <div class="section">
+          <h4>Scarica File dalla Macchina del Team</h4>
+          <div class="desc">Copia un file dalla macchina remota alla macchina locale</div>
+          <pre class="click-to-copy" data-command="scp root@10.60.1.1:/root/zipName.zip ."><code>scp root@10.60.1.1:/root/zipName.zip .</code></pre>
+        </div>
+      
+    
+      <h2>Docker</h2>
+      
+        <div class="section">
+          <h4>Elenco Container Attivi</h4>
+          <div class="desc">Mostra tutti i container Docker attualmente in esecuzione</div>
+          <pre class="click-to-copy" data-command="docker ps"><code>docker ps</code></pre>
+        </div>
+      
+        <div class="section">
+          <h4>Buildare un servizio Docker (senza cache)</h4>
+          <div class="desc">Prebuilda i container da zero ignorando la cache</div>
+          <pre class="click-to-copy" data-command="docker compose build --no-cache"><code>docker compose build --no-cache</code></pre>
+        </div>
+      
+        <div class="section">
+          <h4>Riavvia i Servizi Docker</h4>
+          <div class="desc">Ferma i container e li riavvia usando immagini già buildate (detached)</div>
+          <pre class="click-to-copy" data-command="docker compose down && docker compose up -d"><code>docker compose down && docker compose up -d</code></pre>
+        </div>
+      
+        <div class="section">
+          <h4>Accesso al Container Docker</h4>
+          <div class="desc">Apre una shell interattiva nel container Docker specificato</div>
+          <pre class="click-to-copy" data-command="docker exec -it DOCKER_ID bash"><code>docker exec -it DOCKER_ID bash</code></pre>
+        </div>
+      
+        <div class="section">
+          <h4>Visualizza Log di Docker</h4>
+          <div class="desc">Mostra i log di un servizio Docker</div>
+          <pre class="click-to-copy" data-command="docker compose logs"><code>docker compose logs</code></pre>
+        </div>
+      
+    
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const blocks = document.querySelectorAll('.click-to-copy');
+
+      blocks.forEach(block => {
+        block.style.cursor = 'pointer';
+        block.title = 'Click to copy';
+
+        block.addEventListener('click', () => {
+          const text = block.getAttribute('data-command');
+          navigator.clipboard.writeText(text).then(() => {
+            block.classList.add('copied');
+            setTimeout(() => block.classList.remove('copied'), 1000);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

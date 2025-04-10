@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CTF Cheatsheet</title>
+
+  <!-- My beautiful Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>CTF Cheatsheet</h1>
+    <p><strong>Clicca un commando per copiarlo</strong></p>
+
+    {% for section_name, cmds in sections.items() %}
+      <h2>{{ section_name }}</h2>
+      {% for item in cmds %}
+        <div class="section">
+          <h4>{{ item.title }}</h4>
+          <div class="desc">{{ item.desc }}</div>
+          <pre class="click-to-copy" data-command="{{ item.cmd }}"><code>{{ item.cmd }}</code></pre>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const blocks = document.querySelectorAll('.click-to-copy');
+
+      blocks.forEach(block => {
+        block.style.cursor = 'pointer';
+        block.title = 'Click to copy';
+
+        block.addEventListener('click', () => {
+          const text = block.getAttribute('data-command');
+          navigator.clipboard.writeText(text).then(() => {
+            block.classList.add('copied');
+            setTimeout(() => block.classList.remove('copied'), 1000);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
