@@ -7,6 +7,8 @@ useful_links:
     url: "http://{{ INFRAGUY_IP }}:{{ TOTTI_PORT }}"
   - name: "FlagIds"
     url: "http://{{ SCOREBOARD}}:8081/flagIds"
+  - name: "FREE FLAGS"
+    url: "https://www.youtube.com/watch?v=xvFZjo5PgG0"
 
 commands:
 
