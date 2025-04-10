@@ -1,5 +1,26 @@
+useful_links:
+  - name: "Scoreboard"
+    url: "http://{{ SCOREBOARD }}/"
+  - name: "Tulip"
+    url: "http://{{ INFRAGUY_IP }}:{{ TULIP_PORT }}"
+  - name: "TOTTI"
+    url: "http://{{ INFRAGUY_IP }}:{{ TOTTI_PORT }}"
+  - name: "FlagIds"
+    url: "http://{{ SCOREBOARD}}:8081/flagIds"
+
 commands:
 
+  # ---- Setup ----
+  - section: "Setup"
+    title: "Wireguard Setup"
+    desc: "Attiva una configurazione WireGuard specificata nel file di configurazione (FILECONF)."
+    cmd: "sudo wg-quick up FILECONF"
+
+  - section: "Setup"
+    title: "Wireguard Status"
+    desc: "Mostra lo stato attuale dell'interfaccia WireGuard, comprese le chiavi, peer e traffico."
+    cmd: "wg show"
+    
   # ---- Attack ----
   - section: "Attack"
     title: "Eseguire exploit contro NOP Team"

@@ -14,17 +14,24 @@
 <body>
   <div class="container">
     <h1>CTF Cheatsheet</h1>
-    <p><strong>Clicca un commando per copiarlo</strong></p>
+    <div class="useful-urls-box">
+      <h3>🔗 Useful Links</h3>
+      <ul>
+        {% for link in useful_links %}
+        <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
 
     {% for section_name, cmds in sections.items() %}
-      <h2>{{ section_name }}</h2>
-      {% for item in cmds %}
-        <div class="section">
-          <h4>{{ item.title }}</h4>
-          <div class="desc">{{ item.desc }}</div>
-          <pre class="click-to-copy" data-command="{{ item.cmd }}"><code>{{ item.cmd }}</code></pre>
-        </div>
-      {% endfor %}
+    <h2>{{ section_name }}</h2>
+    {% for item in cmds %}
+    <div class="section">
+      <h4>{{ item.title }}</h4>
+      <div class="desc">{{ item.desc }}</div>
+      <pre class="click-to-copy" data-command="{{ item.cmd }}"><code>{{ item.cmd }}</code></pre>
+    </div>
+    {% endfor %}
     {% endfor %}
   </div>
 
