@@ -75,3 +75,49 @@ commands:
     title: "Visualizza Log di Docker"
     desc: "Mostra i log di un servizio Docker"
     cmd: "docker compose logs"
+
+  - section: "Docker"
+    title: "Rimuove Tutte le Risorse Inutilizzate"
+    desc: "Pulisce immagini inutilizzate, container fermi, reti inutilizzate e cache di build"
+    cmd: "docker system prune -a"
+
+  - section: "Docker"
+    title: "Rimuove Tutte le Risorse Inutilizzate (Inclusi Volumi)"
+    desc: "Pulisce immagini, container, reti, cache e anche i volumi non utilizzati"
+    cmd: "docker system prune -a --volumes"
+
+  - section: "Docker"
+    title: "Crea un Volume Docker"
+    desc: "Genera un nuovo volume Docker gestito dal sistema"
+    cmd: "docker volume create nome_volume"
+
+  - section: "Docker"
+    title: "Elenca Volumi Docker"
+    desc: "Mostra tutti i volumi Docker presenti"
+    cmd: "docker volume ls"
+
+  - section: "Docker"
+    title: "Rimuove un Volume Docker"
+    desc: "Cancella un volume specificato"
+    cmd: "docker volume rm nome_volume"
+
+  - section: "Docker"
+    title: "Mount Bind Locale in Docker Compose"
+    desc: "Monta una cartella locale dentro il container tramite bind mount"
+    cmd: "- ./dati_locali:/app/dati"
+
+  - section: "Docker"
+    title: "Mount Volume Nominato in Docker Compose"
+    desc: "Monta un volume Docker nominato dentro al container"
+    cmd: "volumes:\n  - db_data:/var/lib/mysql"
+    
+  # ---- Rsync ----
+  - section: "Rsync"
+    title: "Sincronizza Cartelle Locali con rsync"
+    desc: "Aggiorna cartella_originale con i file presenti in nuova_cartella, rimuovendo quelli non più esistenti"
+    cmd: "rsync -av --delete ~/percorso/nuova_cartella/ ~/percorso/cartella_originale/"
+
+  - section: "Rsync"
+    title: "Sincronizza una Directory Locale con un Server Remoto"
+    desc: "Copia la directory locale in un server remoto tramite rsync"
+    cmd: "rsync -a ~/dir1 username@host_remoto:directory_destinazione"

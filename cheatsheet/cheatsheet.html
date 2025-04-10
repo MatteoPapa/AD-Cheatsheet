@@ -115,6 +115,65 @@
       <pre class="click-to-copy" data-command="docker compose logs"><code>docker compose logs</code></pre>
     </div>
     
+    <div class="section">
+      <h4>Rimuove Tutte le Risorse Inutilizzate</h4>
+      <div class="desc">Pulisce immagini inutilizzate, container fermi, reti inutilizzate e cache di build</div>
+      <pre class="click-to-copy" data-command="docker system prune -a"><code>docker system prune -a</code></pre>
+    </div>
+    
+    <div class="section">
+      <h4>Rimuove Tutte le Risorse Inutilizzate (Inclusi Volumi)</h4>
+      <div class="desc">Pulisce immagini, container, reti, cache e anche i volumi non utilizzati</div>
+      <pre class="click-to-copy" data-command="docker system prune -a --volumes"><code>docker system prune -a --volumes</code></pre>
+    </div>
+    
+    <div class="section">
+      <h4>Crea un Volume Docker</h4>
+      <div class="desc">Genera un nuovo volume Docker gestito dal sistema</div>
+      <pre class="click-to-copy" data-command="docker volume create nome_volume"><code>docker volume create nome_volume</code></pre>
+    </div>
+    
+    <div class="section">
+      <h4>Elenca Volumi Docker</h4>
+      <div class="desc">Mostra tutti i volumi Docker presenti</div>
+      <pre class="click-to-copy" data-command="docker volume ls"><code>docker volume ls</code></pre>
+    </div>
+    
+    <div class="section">
+      <h4>Rimuove un Volume Docker</h4>
+      <div class="desc">Cancella un volume specificato</div>
+      <pre class="click-to-copy" data-command="docker volume rm nome_volume"><code>docker volume rm nome_volume</code></pre>
+    </div>
+    
+    <div class="section">
+      <h4>Mount Bind Locale in Docker Compose</h4>
+      <div class="desc">Monta una cartella locale dentro il container tramite bind mount</div>
+      <pre class="click-to-copy" data-command="- ./dati_locali:/app/dati"><code>- ./dati_locali:/app/dati</code></pre>
+    </div>
+    
+    <div class="section">
+      <h4>Mount Volume Nominato in Docker Compose</h4>
+      <div class="desc">Monta un volume Docker nominato dentro al container</div>
+      <pre class="click-to-copy" data-command="volumes:
+  - db_data:/var/lib/mysql"><code>volumes:
+  - db_data:/var/lib/mysql</code></pre>
+    </div>
+    
+    
+    <h2>Rsync</h2>
+    
+    <div class="section">
+      <h4>Sincronizza Cartelle Locali con rsync</h4>
+      <div class="desc">Aggiorna cartella_originale con i file presenti in nuova_cartella, rimuovendo quelli non più esistenti</div>
+      <pre class="click-to-copy" data-command="rsync -av --delete ~/percorso/nuova_cartella/ ~/percorso/cartella_originale/"><code>rsync -av --delete ~/percorso/nuova_cartella/ ~/percorso/cartella_originale/</code></pre>
+    </div>
+    
+    <div class="section">
+      <h4>Sincronizza una Directory Locale con un Server Remoto</h4>
+      <div class="desc">Copia la directory locale in un server remoto tramite rsync</div>
+      <pre class="click-to-copy" data-command="rsync -a ~/dir1 username@host_remoto:directory_destinazione"><code>rsync -a ~/dir1 username@host_remoto:directory_destinazione</code></pre>
+    </div>
+    
     
   </div>
 
