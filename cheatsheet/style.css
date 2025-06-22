@@ -58,28 +58,15 @@ code {
   border-radius: 4px;
 }
 
-.useful-urls-box h3 {
-  color: #00e676;
-  margin-top: 0;
-}
-
-.useful-urls-box ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.useful-urls-box li {
-  margin-bottom: 6px;
-}
-
-.useful-urls-box a {
-  color: #80d8ff;
-  text-decoration: none;
-}
-
 .useful-urls-box a:hover {
   text-decoration: underline;
   color: #40c4ff;
+}
+
+.useful-urls-box row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #configForm input{

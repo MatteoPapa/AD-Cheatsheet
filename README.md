@@ -1,6 +1,6 @@
 # 🛠️ AD Cheatsheet
 
-An elegant, interactive, thrilling CTF cheatsheet in pure HTML/JS.
+An elegant, interactive, thrilling CTF cheatsheet in pure HTML/JS.<br/>
 Includes pre-configured templates tailored for exploitation during Attack/Defense (A/D) simulations.
 
 ---

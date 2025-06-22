@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CTF Cheatsheet</title>
+    <title>A/D Cheatsheet</title>
 
     <!-- My beautiful Bootstrap -->
     <link
@@ -16,11 +16,17 @@
 
   <body>
     <div class="container d-flex justify-content-center align-items-center">
-      <h1>CTF Cheatsheet</h1>
-      <div class="useful-urls-box">
-        <h4>🔗 Useful Links</h4>
+      <div class="text-center" style="margin-bottom: 20px">
+        <img
+          src="logo.png"
+          height="200"
+          alt="A/D Logo"
+          class="logo"
+        />
+      </div>
+      <div class="useful-urls-box d-flex justify-content-center align-items-center">
         <div class="row">
-          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+          <div class="col-xs-6 col-sm-4 col-md-3">
             <a
               href="http://10.10.0.1/"
               data-template="http://{{SCOREBOARD}}/"
@@ -30,17 +36,17 @@
               >Scoreboard</a
             >
           </div>
-          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+          <div class="col-xs-6 col-sm-4 col-md-3">
             <a
               href="http://10.80.1.2:3000"
               data-template="http://{{INFRAGUY_IP}}:{{TULIP_PORT}}"
               target="_blank"
               class="btn btn-block"
               style="background-color: #14532d; color: white"
-              >Tulip</a
+              >TULIP</a
             >
           </div>
-          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+          <div class="col-xs-6 col-sm-4 col-md-3">
             <a
               href="http://10.80.1.2:5000"
               data-template="http://{{INFRAGUY_IP}}:{{TOTTI_PORT}}"
@@ -50,7 +56,7 @@
               >TOTTI</a
             >
           </div>
-          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+          <div class="col-xs-6 col-sm-4 col-md-3">
             <a
               href="http://10.10.0.1:8081/flagIds"
               data-template="http://{{SCOREBOARD}}:8081/flagIds"
@@ -58,15 +64,6 @@
               class="btn btn-block"
               style="background-color: #14532d; color: white"
               >FlagIds</a
-            >
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
-            <a
-              href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
-              target="_blank"
-              class="btn btn-block"
-              style="background-color: #14532d; color: white"
-              >FREE FLAGS</a
             >
           </div>
         </div>
@@ -144,8 +141,10 @@
             </div>
           </div>
         </div>
-
+      <div class="text-center">
         <button type="submit" class="btn btn-primary">Apply Config</button>
+      </div>
+
       </form>
 
     <!-- Config Script -->
