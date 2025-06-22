@@ -1,200 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CTF Cheatsheet</title>
 
-<head>
-  <meta charset="UTF-8">
-  <title>CTF Cheatsheet</title>
+    <!-- My beautiful Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <!-- My beautiful Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-</head>
+  <body>
+    <div class="container d-flex justify-content-center align-items-center">
+      <h1>CTF Cheatsheet</h1>
+      <div class="useful-urls-box">
+        <h4>🔗 Useful Links</h4>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+            <a
+              href="http://10.10.0.1/"
+              data-template="http://{{SCOREBOARD}}/"
+              target="_blank"
+              class="btn btn-block"
+              style="background-color: #14532d; color: white"
+              >Scoreboard</a
+            >
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+            <a
+              href="http://10.80.1.2:3000"
+              data-template="http://{{INFRAGUY_IP}}:{{TULIP_PORT}}"
+              target="_blank"
+              class="btn btn-block"
+              style="background-color: #14532d; color: white"
+              >Tulip</a
+            >
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+            <a
+              href="http://10.80.1.2:5000"
+              data-template="http://{{INFRAGUY_IP}}:{{TOTTI_PORT}}"
+              target="_blank"
+              class="btn btn-block"
+              style="background-color: #14532d; color: white"
+              >TOTTI</a
+            >
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+            <a
+              href="http://10.10.0.1:8081/flagIds"
+              data-template="http://{{SCOREBOARD}}:8081/flagIds"
+              target="_blank"
+              class="btn btn-block"
+              style="background-color: #14532d; color: white"
+              >FlagIds</a
+            >
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom: 10px">
+            <a
+              href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
+              target="_blank"
+              class="btn btn-block"
+              style="background-color: #14532d; color: white"
+              >FREE FLAGS</a
+            >
+          </div>
+        </div>
+      </div>
 
-<body>
-  <div class="container">
-    <h1>CTF Cheatsheet</h1>
-    <div class="useful-urls-box">
-      <h3>🔗 Useful Links</h3>
-      <ul>
-        
-        <li><a href="http://10.10.0.1/" target="_blank">Scoreboard</a></li>
-        
-        <li><a href="http://10.80.1.2:3000" target="_blank">Tulip</a></li>
-        
-        <li><a href="http://10.80.1.2:5000" target="_blank">TOTTI</a></li>
-        
-        <li><a href="http://10.10.0.1:8081/flagIds" target="_blank">FlagIds</a></li>
-        
-        <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">FREE FLAGS</a></li>
-        
-      </ul>
-    </div>
+      <form id="configForm">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="YOUR_TEAM_IP">YOUR TEAM IP</label>
+              <input
+                id="YOUR_TEAM_IP"
+                name="YOUR_TEAM_IP"
+                class="form-control"
+                value="10.60.30.1"
+              />
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="INFRAGUY_IP">INFRAGUY IP</label>
+              <input
+                id="INFRAGUY_IP"
+                name="INFRAGUY_IP"
+                class="form-control"
+                value="10.81.30.1"
+              />
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="NOP_TEAM_IP">NOP TEAM IP</label>
+              <input
+                id="NOP_TEAM_IP"
+                name="NOP_TEAM_IP"
+                class="form-control"
+                value="10.60.0.1"
+              />
+            </div>
+          </div>
+        </div>
 
-    
-    <h2>Setup</h2>
-    
-    <div class="section">
-      <h4>Wireguard Setup</h4>
-      <div class="desc">Attiva una configurazione WireGuard specificata nel file di configurazione (FILECONF).</div>
-      <pre class="click-to-copy" data-command="sudo wg-quick up FILECONF"><code>sudo wg-quick up FILECONF</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Wireguard Status</h4>
-      <div class="desc">Mostra lo stato attuale dell'interfaccia WireGuard, comprese le chiavi, peer e traffico.</div>
-      <pre class="click-to-copy" data-command="wg show"><code>wg show</code></pre>
-    </div>
-    
-    
-    <h2>Attack</h2>
-    
-    <div class="section">
-      <h4>Eseguire exploit contro NOP Team</h4>
-      <div class="desc">Esegue lo script di exploit contro il NOP Team</div>
-      <pre class="click-to-copy" data-command="python3 exploit.py 10.60.0.1"><code>python3 exploit.py 10.60.0.1</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Linkare exploit con TOTTI</h4>
-      <div class="desc">Esegue periodicamente lo script di exploit contro tutti i team, e manda i risultati a TOTTI</div>
-      <pre class="click-to-copy" data-command="python3 start_sploit.py -u http://10.80.1.2:5000 exploit.py"><code>python3 start_sploit.py -u http://10.80.1.2:5000 exploit.py</code></pre>
-    </div>
-    
-    
-    <h2>SSH</h2>
-    
-    <div class="section">
-      <h4>SSH nella Macchina del Team</h4>
-      <div class="desc">Accede alla macchina del team tramite SSH</div>
-      <pre class="click-to-copy" data-command="ssh root@10.60.1.1"><code>ssh root@10.60.1.1</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Zippare tutti i file nella directory corrente</h4>
-      <div class="desc">Crea un archivio .zip di tutti i file e cartelle nella cartella attuale</div>
-      <pre class="click-to-copy" data-command="zip -r zipName.zip ."><code>zip -r zipName.zip .</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Scarica File dalla Macchina del Team</h4>
-      <div class="desc">Copia un file dalla macchina remota alla macchina locale</div>
-      <pre class="click-to-copy" data-command="scp root@10.60.1.1:/root/zipName.zip ."><code>scp root@10.60.1.1:/root/zipName.zip .</code></pre>
-    </div>
-    
-    
-    <h2>Docker</h2>
-    
-    <div class="section">
-      <h4>Elenco Container Attivi</h4>
-      <div class="desc">Mostra tutti i container Docker attualmente in esecuzione</div>
-      <pre class="click-to-copy" data-command="docker ps"><code>docker ps</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Buildare un servizio Docker (senza cache)</h4>
-      <div class="desc">Prebuilda i container da zero ignorando la cache</div>
-      <pre class="click-to-copy" data-command="docker compose build --no-cache"><code>docker compose build --no-cache</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Riavvia i Servizi Docker</h4>
-      <div class="desc">Ferma i container e li riavvia usando immagini già buildate (detached)</div>
-      <pre class="click-to-copy" data-command="docker compose down && docker compose up -d"><code>docker compose down && docker compose up -d</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Accesso al Container Docker</h4>
-      <div class="desc">Apre una shell interattiva nel container Docker specificato</div>
-      <pre class="click-to-copy" data-command="docker exec -it DOCKER_ID bash"><code>docker exec -it DOCKER_ID bash</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Visualizza Log di Docker</h4>
-      <div class="desc">Mostra i log di un servizio Docker</div>
-      <pre class="click-to-copy" data-command="docker compose logs"><code>docker compose logs</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Rimuove Tutte le Risorse Inutilizzate</h4>
-      <div class="desc">Pulisce immagini inutilizzate, container fermi, reti inutilizzate e cache di build</div>
-      <pre class="click-to-copy" data-command="docker system prune -a"><code>docker system prune -a</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Rimuove Tutte le Risorse Inutilizzate (Inclusi Volumi)</h4>
-      <div class="desc">Pulisce immagini, container, reti, cache e anche i volumi non utilizzati</div>
-      <pre class="click-to-copy" data-command="docker system prune -a --volumes"><code>docker system prune -a --volumes</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Crea un Volume Docker</h4>
-      <div class="desc">Genera un nuovo volume Docker gestito dal sistema</div>
-      <pre class="click-to-copy" data-command="docker volume create nome_volume"><code>docker volume create nome_volume</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Elenca Volumi Docker</h4>
-      <div class="desc">Mostra tutti i volumi Docker presenti</div>
-      <pre class="click-to-copy" data-command="docker volume ls"><code>docker volume ls</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Rimuove un Volume Docker</h4>
-      <div class="desc">Cancella un volume specificato</div>
-      <pre class="click-to-copy" data-command="docker volume rm nome_volume"><code>docker volume rm nome_volume</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Mount Bind Locale in Docker Compose</h4>
-      <div class="desc">Monta una cartella locale dentro il container tramite bind mount</div>
-      <pre class="click-to-copy" data-command="- ./dati_locali:/app/dati"><code>- ./dati_locali:/app/dati</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Mount Volume Nominato in Docker Compose</h4>
-      <div class="desc">Monta un volume Docker nominato dentro al container</div>
-      <pre class="click-to-copy" data-command="volumes:
-  - db_data:/var/lib/mysql"><code>volumes:
-  - db_data:/var/lib/mysql</code></pre>
-    </div>
-    
-    
-    <h2>Rsync</h2>
-    
-    <div class="section">
-      <h4>Sincronizza Cartelle Locali con rsync</h4>
-      <div class="desc">Aggiorna cartella_originale con i file presenti in nuova_cartella, rimuovendo quelli non più esistenti</div>
-      <pre class="click-to-copy" data-command="rsync -av --delete ~/percorso/nuova_cartella/ ~/percorso/cartella_originale/"><code>rsync -av --delete ~/percorso/nuova_cartella/ ~/percorso/cartella_originale/</code></pre>
-    </div>
-    
-    <div class="section">
-      <h4>Sincronizza una Directory Locale con un Server Remoto</h4>
-      <div class="desc">Copia la directory locale in un server remoto tramite rsync</div>
-      <pre class="click-to-copy" data-command="rsync -a ~/dir1 username@host_remoto:directory_destinazione"><code>rsync -a ~/dir1 username@host_remoto:directory_destinazione</code></pre>
-    </div>
-    
-    
-  </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="SCOREBOARD">SCOREBOARD</label>
+              <input
+                id="SCOREBOARD"
+                name="SCOREBOARD"
+                class="form-control"
+                value="10.10.0.2"
+              />
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="TULIP_PORT">TULIP PORT</label>
+              <input
+                id="TULIP_PORT"
+                name="TULIP_PORT"
+                class="form-control"
+                value="3002"
+              />
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="TOTTI_PORT">TOTTI PORT</label>
+              <input
+                id="TOTTI_PORT"
+                name="TOTTI_PORT"
+                class="form-control"
+                value="5002"
+              />
+            </div>
+          </div>
+        </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const blocks = document.querySelectorAll('.click-to-copy');
+        <button type="submit" class="btn btn-primary">Apply Config</button>
+      </form>
 
-      blocks.forEach(block => {
-        block.style.cursor = 'pointer';
-        block.title = 'Click to copy';
+    <!-- Config Script -->
+    <script>
+      function fillTemplate(template, vars) {
+        return template.replace(
+          /{{(.*?)}}/g,
+          (_, key) => vars[key.trim()] || ""
+        );
+      }
 
-        block.addEventListener('click', () => {
-          const text = block.getAttribute('data-command');
-          navigator.clipboard.writeText(text).then(() => {
-            block.classList.add('copied');
-            setTimeout(() => block.classList.remove('copied'), 1000);
+      function getConfig() {
+        const formData = new FormData(document.getElementById("configForm"));
+        return Object.fromEntries(formData.entries());
+      }
+
+      function applyConfig(config) {
+        // Update commands
+        document.querySelectorAll("[data-template]").forEach((el) => {
+          const template = el.getAttribute("data-template");
+          const filled = fillTemplate(template, config);
+
+          if (el.tagName === "PRE") {
+            el.setAttribute("data-command", filled);
+            const code = el.querySelector("code");
+            if (code) code.textContent = filled;
+          } else if (el.tagName === "A") {
+            el.setAttribute("href", filled);
+          }
+        });
+      }
+
+      document
+        .getElementById("configForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const config = getConfig();
+          applyConfig(config);
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Copy to clipboard
+        document.querySelectorAll(".click-to-copy").forEach((pre) => {
+          pre.style.cursor = "pointer";
+          pre.title = "Click to copy";
+          pre.addEventListener("click", () => {
+            const text = pre.getAttribute("data-command");
+            navigator.clipboard.writeText(text).then(() => {
+              pre.classList.add("copied");
+              setTimeout(() => pre.classList.remove("copied"), 1000);
+            });
           });
         });
-      });
-    });
-  </script>
-</body>
 
+        // Apply defaults on load
+        applyConfig(getConfig());
+      });
+    </script>    
+    
+    <!-- Commands Script -->
+    <script>
+      function loadCommands() {
+        const jsonText = document.getElementById("commands-json").textContent;
+        const data = JSON.parse(jsonText);
+        renderCommands(data.commands);
+      }
+
+
+      function renderCommands(commands) {
+        const container = document.querySelector('.container');
+        const grouped = {};
+
+        // Group by section
+        commands.forEach(cmd => {
+          if (!grouped[cmd.section]) grouped[cmd.section] = [];
+          grouped[cmd.section].push(cmd);
+        });
+
+        // Insert into DOM
+        Object.entries(grouped).forEach(([section, cmds]) => {
+          const h2 = document.createElement('h2');
+          h2.textContent = section;
+          container.appendChild(h2);
+
+          cmds.forEach(({ title, desc, cmd }) => {
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'section';
+
+            const h4 = document.createElement('h4');
+            h4.textContent = title;
+
+            const descDiv = document.createElement('div');
+            descDiv.className = 'desc';
+            descDiv.textContent = desc;
+
+            const pre = document.createElement('pre');
+            pre.className = 'click-to-copy';
+            pre.setAttribute('data-template', cmd);
+            pre.setAttribute('data-command', cmd);
+
+            const code = document.createElement('code');
+            code.textContent = cmd;
+
+            pre.appendChild(code);
+            sectionDiv.append(h4, descDiv, pre);
+            container.appendChild(sectionDiv);
+          });
+        });
+
+        bindCopyHandlers();
+        applyConfig(getConfig());
+      }
+
+      function bindCopyHandlers() {
+        document.querySelectorAll('.click-to-copy').forEach(pre => {
+          pre.style.cursor = 'pointer';
+          pre.title = 'Click to copy';
+          pre.addEventListener('click', () => {
+            const text = pre.getAttribute('data-command');
+            navigator.clipboard.writeText(text).then(() => {
+              pre.classList.add('copied');
+              setTimeout(() => pre.classList.remove('copied'), 1000);
+            });
+          });
+        });
+      }
+
+      // Call on DOM ready
+      document.addEventListener('DOMContentLoaded', loadCommands);
+    </script>
+
+    <!-- Commands JSON -->
+    <script id="commands-json" type="application/json">
+        {
+          "commands": [
+            {
+              "section": "Setup",
+              "title": "Wireguard Setup",
+              "desc": "Attiva una configurazione WireGuard specificata nel file di configurazione (FILECONF).",
+              "cmd": "sudo wg-quick up FILECONF"
+            },
+            {
+              "section": "Setup",
+              "title": "Wireguard Status",
+              "desc": "Mostra lo stato attuale dell'interfaccia WireGuard, comprese le chiavi, peer e traffico.",
+              "cmd": "wg show"
+            },
+            {
+              "section": "Attack",
+              "title": "Eseguire exploit contro NOP Team",
+              "desc": "Esegue lo script di exploit contro il NOP Team",
+              "cmd": "python3 exploit.py {{ NOP_TEAM_IP }}"
+            },
+            {
+              "section": "Attack",
+              "title": "Linkare exploit con TOTTI",
+              "desc": "Esegue periodicamente lo script di exploit contro tutti i team, e manda i risultati a TOTTI",
+              "cmd": "python3 start_sploit.py -u http://{{ INFRAGUY_IP }}:{{TOTTI_PORT}} exploit.py"
+            },
+            {
+              "section": "SSH",
+              "title": "SSH nella Macchina del Team",
+              "desc": "Accede alla macchina del team tramite SSH",
+              "cmd": "ssh root@{{ YOUR_TEAM_IP }}"
+            },
+            {
+              "section": "SSH",
+              "title": "Zippare tutti i file nella directory corrente",
+              "desc": "Crea un archivio .zip di tutti i file e cartelle nella cartella attuale",
+              "cmd": "zip -r zipName.zip ."
+            },
+            {
+              "section": "SSH",
+              "title": "Scarica File dalla Macchina del Team",
+              "desc": "Copia un file dalla macchina remota alla macchina locale",
+              "cmd": "scp root@{{ YOUR_TEAM_IP }}:/root/zipName.zip ."
+            },
+            {
+              "section": "Docker",
+              "title": "Elenco Container Attivi",
+              "desc": "Mostra tutti i container Docker attualmente in esecuzione",
+              "cmd": "docker ps"
+            },
+            {
+              "section": "Docker",
+              "title": "Buildare un servizio Docker (senza cache)",
+              "desc": "Prebuilda i container da zero ignorando la cache",
+              "cmd": "docker compose build --no-cache"
+            },
+            {
+              "section": "Docker",
+              "title": "Riavvia i Servizi Docker",
+              "desc": "Ferma i container e li riavvia usando immagini già buildate (detached)",
+              "cmd": "docker compose down && docker compose up -d"
+            },
+            {
+              "section": "Docker",
+              "title": "Accesso al Container Docker",
+              "desc": "Apre una shell interattiva nel container Docker specificato",
+              "cmd": "docker exec -it DOCKER_ID bash"
+            },
+            {
+              "section": "Docker",
+              "title": "Visualizza Log di Docker",
+              "desc": "Mostra i log di un servizio Docker",
+              "cmd": "docker compose logs"
+            },
+            {
+              "section": "Docker",
+              "title": "Rimuove Tutte le Risorse Inutilizzate",
+              "desc": "Pulisce immagini inutilizzate, container fermi, reti inutilizzate e cache di build",
+              "cmd": "docker system prune -a"
+            },
+            {
+              "section": "Docker",
+              "title": "Rimuove Tutte le Risorse Inutilizzate (Inclusi Volumi)",
+              "desc": "Pulisce immagini, container, reti, cache e anche i volumi non utilizzati",
+              "cmd": "docker system prune -a --volumes"
+            },
+            {
+              "section": "Docker",
+              "title": "Crea un Volume Docker",
+              "desc": "Genera un nuovo volume Docker gestito dal sistema",
+              "cmd": "docker volume create nome_volume"
+            },
+            {
+              "section": "Docker",
+              "title": "Elenca Volumi Docker",
+              "desc": "Mostra tutti i volumi Docker presenti",
+              "cmd": "docker volume ls"
+            },
+            {
+              "section": "Docker",
+              "title": "Rimuove un Volume Docker",
+              "desc": "Cancella un volume specificato",
+              "cmd": "docker volume rm nome_volume"
+            },
+            {
+              "section": "Docker",
+              "title": "Mount Bind Locale in Docker Compose",
+              "desc": "Monta una cartella locale dentro il container tramite bind mount",
+              "cmd": "- ./dati_locali:/app/dati"
+            },
+            {
+              "section": "Docker",
+              "title": "Mount Volume Nominato in Docker Compose",
+              "desc": "Monta un volume Docker nominato dentro al container",
+              "cmd": "volumes:\n  - db_data:/var/lib/mysql"
+            },
+            {
+              "section": "Rsync",
+              "title": "Sincronizza Cartelle Locali con rsync",
+              "desc": "Aggiorna cartella_originale con i file presenti in nuova_cartella, rimuovendo quelli non più esistenti",
+              "cmd": "rsync -av --delete ~/percorso/nuova_cartella/ ~/percorso/cartella_originale/"
+            },
+            {
+              "section": "Rsync",
+              "title": "Sincronizza una Directory Locale con un Server Remoto",
+              "desc": "Copia la directory locale in un server remoto tramite rsync",
+              "cmd": "rsync -a ~/dir1 username@host_remoto:directory_destinazione"
+            }
+          ]
+        }
+
+    </script>
+
+
+  </body>
 </html>

@@ -53,8 +53,8 @@ code {
 .useful-urls-box {
   background-color: #1e1e1e;
   border-left: 4px solid #00e676;
-  padding: 20px;
-  margin-bottom: 40px;
+  padding: 5px 20px;
+  margin-bottom: 20px;
   border-radius: 4px;
 }
 
@@ -80,4 +80,22 @@ code {
 .useful-urls-box a:hover {
   text-decoration: underline;
   color: #40c4ff;
+}
+
+#configForm input{
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+button {
+  background-color: #00e676 !important;
+  color: #121212 !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  font-size: 15px !important;
+}
+
+button:hover {
+  background-color: #00b248 !important;
 }

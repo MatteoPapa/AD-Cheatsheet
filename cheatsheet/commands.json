@@ -1,0 +1,130 @@
+{
+  "commands": [
+    {
+      "section": "Setup",
+      "title": "Wireguard Setup",
+      "desc": "Attiva una configurazione WireGuard specificata nel file di configurazione (FILECONF).",
+      "cmd": "sudo wg-quick up FILECONF"
+    },
+    {
+      "section": "Setup",
+      "title": "Wireguard Status",
+      "desc": "Mostra lo stato attuale dell'interfaccia WireGuard, comprese le chiavi, peer e traffico.",
+      "cmd": "wg show"
+    },
+    {
+      "section": "Attack",
+      "title": "Eseguire exploit contro NOP Team",
+      "desc": "Esegue lo script di exploit contro il NOP Team",
+      "cmd": "python3 exploit.py {{ NOP_TEAM_IP }}"
+    },
+    {
+      "section": "Attack",
+      "title": "Linkare exploit con TOTTI",
+      "desc": "Esegue periodicamente lo script di exploit contro tutti i team, e manda i risultati a TOTTI",
+      "cmd": "python3 start_sploit.py -u http://{{ INFRAGUY_IP }}:5000 exploit.py"
+    },
+    {
+      "section": "SSH",
+      "title": "SSH nella Macchina del Team",
+      "desc": "Accede alla macchina del team tramite SSH",
+      "cmd": "ssh root@{{ YOUR_TEAM_IP }}"
+    },
+    {
+      "section": "SSH",
+      "title": "Zippare tutti i file nella directory corrente",
+      "desc": "Crea un archivio .zip di tutti i file e cartelle nella cartella attuale",
+      "cmd": "zip -r zipName.zip ."
+    },
+    {
+      "section": "SSH",
+      "title": "Scarica File dalla Macchina del Team",
+      "desc": "Copia un file dalla macchina remota alla macchina locale",
+      "cmd": "scp root@{{ YOUR_TEAM_IP }}:/root/zipName.zip ."
+    },
+    {
+      "section": "Docker",
+      "title": "Elenco Container Attivi",
+      "desc": "Mostra tutti i container Docker attualmente in esecuzione",
+      "cmd": "docker ps"
+    },
+    {
+      "section": "Docker",
+      "title": "Buildare un servizio Docker (senza cache)",
+      "desc": "Prebuilda i container da zero ignorando la cache",
+      "cmd": "docker compose build --no-cache"
+    },
+    {
+      "section": "Docker",
+      "title": "Riavvia i Servizi Docker",
+      "desc": "Ferma i container e li riavvia usando immagini già buildate (detached)",
+      "cmd": "docker compose down && docker compose up -d"
+    },
+    {
+      "section": "Docker",
+      "title": "Accesso al Container Docker",
+      "desc": "Apre una shell interattiva nel container Docker specificato",
+      "cmd": "docker exec -it DOCKER_ID bash"
+    },
+    {
+      "section": "Docker",
+      "title": "Visualizza Log di Docker",
+      "desc": "Mostra i log di un servizio Docker",
+      "cmd": "docker compose logs"
+    },
+    {
+      "section": "Docker",
+      "title": "Rimuove Tutte le Risorse Inutilizzate",
+      "desc": "Pulisce immagini inutilizzate, container fermi, reti inutilizzate e cache di build",
+      "cmd": "docker system prune -a"
+    },
+    {
+      "section": "Docker",
+      "title": "Rimuove Tutte le Risorse Inutilizzate (Inclusi Volumi)",
+      "desc": "Pulisce immagini, container, reti, cache e anche i volumi non utilizzati",
+      "cmd": "docker system prune -a --volumes"
+    },
+    {
+      "section": "Docker",
+      "title": "Crea un Volume Docker",
+      "desc": "Genera un nuovo volume Docker gestito dal sistema",
+      "cmd": "docker volume create nome_volume"
+    },
+    {
+      "section": "Docker",
+      "title": "Elenca Volumi Docker",
+      "desc": "Mostra tutti i volumi Docker presenti",
+      "cmd": "docker volume ls"
+    },
+    {
+      "section": "Docker",
+      "title": "Rimuove un Volume Docker",
+      "desc": "Cancella un volume specificato",
+      "cmd": "docker volume rm nome_volume"
+    },
+    {
+      "section": "Docker",
+      "title": "Mount Bind Locale in Docker Compose",
+      "desc": "Monta una cartella locale dentro il container tramite bind mount",
+      "cmd": "- ./dati_locali:/app/dati"
+    },
+    {
+      "section": "Docker",
+      "title": "Mount Volume Nominato in Docker Compose",
+      "desc": "Monta un volume Docker nominato dentro al container",
+      "cmd": "volumes:\n  - db_data:/var/lib/mysql"
+    },
+    {
+      "section": "Rsync",
+      "title": "Sincronizza Cartelle Locali con rsync",
+      "desc": "Aggiorna cartella_originale con i file presenti in nuova_cartella, rimuovendo quelli non più esistenti",
+      "cmd": "rsync -av --delete ~/percorso/nuova_cartella/ ~/percorso/cartella_originale/"
+    },
+    {
+      "section": "Rsync",
+      "title": "Sincronizza una Directory Locale con un Server Remoto",
+      "desc": "Copia la directory locale in un server remoto tramite rsync",
+      "cmd": "rsync -a ~/dir1 username@host_remoto:directory_destinazione"
+    }
+  ]
+}
